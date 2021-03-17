@@ -1,0 +1,9 @@
+.resy-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: black 1px solid;
+  padding: 1%;
+  margin: 2%;
+  width: 20%;
+}
