@@ -1,14 +1,48 @@
+import { useState } from 'react'
+
 
 const ResyForm = () => {
-  
+  const [formProgress, setFormProgress] = useState({
+    name: "",
+    date: "",
+    time: "",
+    number: ""
+  })
+
+  const updateForm = (event) => {
+    setFormProgress({
+      ...formProgress, [event.target.name]: event.target.value
+    })
+  }
 
   return (
     <form>
       <h1>Make A Reservation!</h1>
-      <input type="text" placeholder="Your Name" name="name"/>
-      <input type="text" placeholder="Date" name="date"/>
-      <input type="text" placeholder="Time" name="time"/>
-      <input type="text" placeholder="Number of People" name="number"/>
+      <input 
+        type="text" 
+        placeholder="Your Name" 
+        name="name" 
+        value={formProgress.name} 
+        onChange={updateForm}
+      />
+      <input 
+        type="text" 
+        placeholder="Date" 
+        name="date" 
+        value={formProgress.date} 
+        onChange={updateForm}/>
+      <input
+        type="text" 
+        placeholder="Time" 
+        name="time" 
+        value={formProgress.time}
+        onChange={updateForm}/>
+      <input 
+        type="text" 
+        placeholder="Number of People" 
+        value={formProgress.number} 
+        name="number" 
+        onChange={updateForm}/>
       <button>Make Your Reservation</button>
     </form>
   )
