@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 
-const ResyForm = () => {
+const ResyForm = ({ makeNewResy }) => {
   const [formProgress, setFormProgress] = useState({
     name: "",
     date: "",
@@ -13,6 +13,12 @@ const ResyForm = () => {
     setFormProgress({
       ...formProgress, [event.target.name]: event.target.value
     })
+  }
+
+  const submitResy = (event) => {
+    event.preventDefault()
+    const resy = {...formProgress, id: Date.now()}
+    makeNewResy(resy)
   }
 
   return (
@@ -43,7 +49,7 @@ const ResyForm = () => {
         value={formProgress.number} 
         name="number" 
         onChange={updateForm}/>
-      <button>Make Your Reservation</button>
+      <button onClick={submitResy}>Make Your Reservation</button>
     </form>
   )
 }
