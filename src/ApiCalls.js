@@ -14,4 +14,14 @@ const postNewResy = (resy) => {
     .then(response => response.json())
 }
 
-export { getAllResys, postNewResy }
+const deleteResy = (resyId) => {
+  return fetch(`http://localhost:3001/api/v1/reservations/${resyId}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => response.json())
+}
+
+export { getAllResys, postNewResy, deleteResy }

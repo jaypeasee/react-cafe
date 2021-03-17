@@ -1,11 +1,11 @@
 import './Resys.css'
 import ResyCard from '../ResyCard/ResyCard'
 
-const Resys = ({ allResys }) => {
+const Resys = ({ allResys, cancelResy }) => {
 
   const renderAllResys = () => {
     return allResys.map(resy => {
-      return <ResyCard resy={resy}/>
+      return <ResyCard key={resy.id} resy={resy} cancelResy={cancelResy}/>
     })
   }
 
